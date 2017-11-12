@@ -896,7 +896,7 @@ this._sendMessage(seq,"Kamu bukan admin");
 
         if(txt == 'responsename') {
            if(isAdmin(seq.from) || isStaff(seq.from)) {
-            this._sendMessage(seq, 'Stark here');
+            this._sendMessage(seq, 'Im here');
            }
         }
 
