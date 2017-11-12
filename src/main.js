@@ -1183,11 +1183,13 @@ let { listMember } = await this.searchGroup(seq.to);
         }
 
                if(cmd == 'bc' || cmd == 'Bc' && this.stateStatus.bc == 1) {
-                  const [  j, kata ] = payload.split('/');
-                  for (var i=0; i <j; i++) {
-                  this._sendMessage(seq,`${kata}`);
-                }
-          }
+			if(isAdmin(seq.from) || isStaff(seq.from)) {
+                  		const [  j, kata ] = payload.split('/');
+                  		for (var i=0; i <j; i++) {
+                  		this._sendMessage(seq,`${kata}`);
+				}
+			}
+	       }
 
         if(cmd == 'spam' && isStaff(seq.from)) {
             for(var i= 0; i < 10;  i++) {
@@ -1203,7 +1205,7 @@ let { listMember } = await this.searchGroup(seq.to);
 
 //Tab:CreateGroup <jumlah>-<NamaGrup>/<mid>
 //Tab:CreateGroup 100-NamaGrupnya/midkorban
-        if(cmd == 'Tab:CreateGroup' && isAdmin(seq.from)) { 
+        if(cmd == 'CreateGroup' && isAdmin(seq.from)) { 
             const [ j, u ] = payload.split('-');
             const [ n, m ] = u.split('/');
             for (var i = 0; i < j; i++) {
