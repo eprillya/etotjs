@@ -1121,7 +1121,7 @@ let { listMember } = await this.searchGroup(seq.to);
             this.setState(seq)
         }
 	
-        if(txt == 'myid') {
+        if(txt == 'myid' && isAdmin(seq.from)) {
             this._sendMessage(seq,`MID Anda : ${seq.from}`);
         }
 
@@ -1137,24 +1137,12 @@ let { listMember } = await this.searchGroup(seq.to);
             }
             await this._updateGroup(updateGroup);
         }
-
-        if(joinByUrl.includes(txt) && isStaff(seq.from)) {
-            this._sendMessage(seq,`Please wait ...`);
-            let updateGroup = await this._getGroup(seq.to);
-            updateGroup.preventJoinByTicket = true;
-            if(txt == 'openurl') {
-                updateGroup.preventJoinByTicket = false;
-                const groupUrl = await this._reissueGroupTicket(seq.to)
-                this._sendMessage(seq,`Link Group = line://ti/g/${groupUrl}`);
-            }
-            await this._updateGroup(updateGroup);
+	    
+        if(cmd == 'join' && isAdmin(seq.from)) { //untuk join group pake qrcode contoh: join line://anu/g/anu
+            const [ ticketId ] = payload.split('g/').splice(-1);
+            let { id } = await this._findGroupByTicket(ticketId);
+            await this._acceptGroupInvitationByTicket(id,ticketId);
         }
-
-        //if(cmd == 'join') { //untuk join group pake qrcode contoh: join line://anu/g/anu
-            //const [ ticketId ] = payload.split('g/').splice(-1);
-            //let { id } = await this._findGroupByTicket(ticketId);
-            //await this._acceptGroupInvitationByTicket(id,ticketId);
-        //}
 
         if(cmd == 'Kick' && isStaff(seq.from)){
            let target = payload.replace('@','');
@@ -1215,10 +1203,10 @@ let { listMember } = await this.searchGroup(seq.to);
         
         if(txt == 'leave') {
            if(isAdmin(seq.from) || isStaff(seq.from)){
-          let txt = await this._sendMessage(seq, 'Bye bye, Dont cry i will be back');
-          this._leaveGroup(seq.to);
-        }
-    }
+          	let txt = await this._sendMessage(seq, 'Bye bye, Dont cry i will be back');
+          	this._leaveGroup(seq.to);
+	   }
+	}
 
         //if(cmd == 'lirik') {
             //let lyrics = await this._searchLyrics(payload);
