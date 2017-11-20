@@ -1107,7 +1107,7 @@ let { listMember } = await this.searchGroup(seq.to);
         if(action.includes(txt)) {
             this.setState(seq)
         }
-	if(txt == 'Ban kai' && this.stateStatus.bc == 1) {
+	if(txt == 'Bankai' && this.stateStatus.bankaimode == 1) {
 		if(isAdmin(seq.from) || isStaff(seq.from)) {
 			this.sendMessage(seq,"Bankai mode sudah aktif");
 		}
