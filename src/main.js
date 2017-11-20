@@ -523,7 +523,7 @@ class LINE extends LineAPI {
             //this._sendMessage(seq,`Status: \n${JSON.stringify(this.stateStatus)}`);
 			this._sendMessage(seq,isinya);
         } else {
-            this._sendMessage(seq,`Hih lu bukan admin atau staff disini (╬◣д◢)`);
+            this._sendMessage(seq,`Kamu bukan admin`);
         }}
     }
 
@@ -1186,7 +1186,7 @@ this._sendMessage(seq,"Kamu bukan admin :O");
 
          if(txt == 'status') {
 	    if(isAdmin(seq.from) || isStaff(seq.from)) {
-               this._sendMessage(seq,`Status: \n${JSON.stringify(this.stateStatus)}\n\n*Note: Jika Status Menunjukkan 0 Itu Berarti Off Dan Jika Status Menunjukkan 1 Itu Berarti On.\n\n-тєαм αиυ вσт-`);
+               this._sendMessage(seq,`Status: \n${JSON.stringify(this.stateStatus)}\n\n*Note: Jika Status Menunjukkan 0 Itu Berarti Off Dan Jika Status Menunjukkan 1 Itu Berarti On.\n\n-A̶n̶n̶a̶b̶e̶l̶l̶e̶ ̶B̶o̶t̶-`);
 	    }
 	 }
 	    
