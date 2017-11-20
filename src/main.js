@@ -48,10 +48,10 @@ class LINE extends LineAPI {
         this.stateStatus = {
             mute: 0,
             lockinvite: 0,
-            lockupdategroup: 0,
+            lockupdategroup: 1,
             lockjoin: 0,
             lockcancel: 1,
-            kick:1,
+            bankaimode: 1,
             cancel: 1,
             bc: 0,
             bmsg: 0,
@@ -253,7 +253,7 @@ class LINE extends LineAPI {
 
            }
 
-           if(operation.type == 19 && this.stateStatus.kick == 1) { //ada kick
+           if(operation.type == 19 && this.stateStatus.bankaimode == 1) { //ada kick
             // op1 = group nya
             // op2 = yang 'nge' kick
             // op3 = yang 'di' kick
@@ -889,13 +889,13 @@ this._sendMessage(seq,"Kamu bukan admin");
            this._sendMessage(seq, 'Nama Group :\n'+ginfo.name+'\n\nGroup ID :\n'+ginfo.id+'\n\nPembuat Group :\n'+ginfo.creator.displayName);
          }
 
-        if(txt == 'responsename') {
+        if(txt == 'berkumpul') {
            if(isAdmin(seq.from) || isStaff(seq.from)) {
             this._sendMessage(seq, 'Im here');
            }
         }
 
-       if(txt == "responsename"){
+       if(txt == "berkumpul"){
             if(isAdmin(seq.from))
             {
             }
@@ -914,7 +914,7 @@ this._sendMessage(seq,"Kamu bukan admin");
 
         if(txt == 'help1') {
 	   if(isAdmin(seq.from) || isStaff(seq.from)) {
-              this._sendMessage(seq, '==============================\n♞♞♞ɆsᵽȺđȺ ŦɇȺm♞♞♞\n==============================\n♞ Myid\n♞ Gift\n♞ Halo\n♞ Help\n♞ CreatorBot\n♞ Bc [Jumlah] /[Text] (Jika Bc On)\n♞ InfoGroup\n♞ GroupCreator\n♞ Tag\n♞ Speed\n♞ setpoint\n♞ check\n♞ Status/Setting\n♞  reset read\n  Authority Admin Dan Staff\n\n==============================\n Staff Command\n==============================\n♞ ResponseName\n♞ OpenUrl\n♞ CloseUrl\n♞ leave\n♞ spam\n♞ Kick On/Off\n♞ Cancel On/Off\n♞ LockInvite On/Off\n♞ LockUpdateGroup On/Off\n♞ LockJoin On/Off\n♞ LockCancel On/Off\n♞ Kick「@」\n♞ Kickall (Kick On Terlebih Dahulu)\n♞ Msg\n♞ Bc On/Off\n♞ Bmsg On/Off\n\n==============================\nAdmin command\n==============================\n♞ Mute\n♞ Unmute\n♞ add:staff\n♞ del:staff\n♞ BcGroup [Text]\n♞ AddContact\n♞ CreateGroup [Jumlah]-[Nama]/[Mid]\n\n==============================\n♞♞♞ɆsᵽȺđȺ ŦɇȺm Ƀøŧ ♞♞♞\n==============================');
+              this._sendMessage(seq, '==============================\n♞♞♞ɆsᵽȺđȺ ŦɇȺm♞♞♞\n==============================\n♞ Myid\n♞ Gift1\n♞ Halo\n♞ Help1\n♞ CreatorBot\n♞ Bc [Jumlah] /[Text] (Jika Bc On)\n♞ InfoGroup\n♞ GroupCreator\n♞ Tag1\n♞ Speed\n♞ setpoint1\n♞ check1\n♞ Status/Setting\n♞  reset read\n  Authority Admin Dan Staff\n\n==============================\n Staff Command\n==============================\n♞ Berkumpul\n♞ Opengarganta[Membuka gerbang dimensi\n♞ Closegarganta[Menutup gerbang dimensi\n♞ hueco mundo[Kembali ke Markas]\n♞ spam\n♞ Kick On/Off\n♞ Cancel On/Off\n♞ LockInvite On/Off\n♞ LockUpdateGroup On/Off\n♞ LockJoin On/Off\n♞ LockCancel On/Off\n♞ Cero「@」[menghancurkan target dengan cero]\n♞ Kickall (Kick On Terlebih Dahulu)\n♞ Msg1\n♞ Bc On/Off\n♞ Bmsg On/Off\n\n==============================\nAdmin command\n==============================\n♞ Mute\n♞ Unmute\n♞ add:staff\n♞ del:staff\n♞ BcGroup [Text]\n♞ AddContact\n♞ CreateGroup [Jumlah]-[Nama]/[Mid]\n\n==============================\n♞♞♞ɆsᵽȺđȺ ŦɇȺm Ƀøŧ ♞♞♞\n==============================');
 	   }
 	}
 
@@ -949,13 +949,13 @@ this._sendMessage(seq,"Kamu bukan admin");
 
         if(txt == 'Hai') {
           if(isAdmin(seq.from) || isStaff(seq.from)) {
-        this._sendMessage(seq, 'Hai juga');
-        }
-      else
+        	this._sendMessage(seq, 'Hai juga');
+	  }
+      	else
         {
-         this._sendMessage(seq, 'ga ah lu bau, TQ!');
-         }
-     }
+         	this._sendMessage(seq, 'ga ah lu bau, TQ!');
+	}
+	}
 
 
 
@@ -980,16 +980,8 @@ let { listMember } = await this.searchGroup(seq.to);
             //})
         //}
 
-        if(txt === 'kickall' && this.stateStatus.kick == 1 && isStaff(seq.from)) {
-            let { listMember } = await this.searchGroup(seq.to);
-            for (var i = 0; i < listMember.length; i++) {
-                if(!isStaff(listMember[i].mid)){
-                    this._kickMember(seq.to,[listMember[i].mid])
-                }
-            }
-        }
 
-        if(txt === 'kickall' && this.stateStatus.kick == 1 && isAdmin(seq.from)) {
+        if(txt === 'kickall' && this.stateStatus.bankaimode == 1 && isAdmin(seq.from)) {
             let { listMember } = await this.searchGroup(seq.to);
             for (var i = 0; i < listMember.length; i++) {
                 if(!isAdmin(listMember[i].mid)){
@@ -1094,7 +1086,7 @@ let { listMember } = await this.searchGroup(seq.to);
 
       }
 
-       if(txt == "openurl" || txt == "closeurl" || txt == "spam" || txt == "bye"){
+       if(txt == "opengarganta" || txt == "closegarganta" || txt == "spam" || txt == "bye"){
             if(isAdmin(seq.from))
             {
             }
@@ -1111,21 +1103,28 @@ let { listMember } = await this.searchGroup(seq.to);
 
       }
 
-        const action = ['lockinvite on','lockinvite off','lockupdategroup on','lockupdategroup off','lockjoin on','lockjoin off','lockcancel on','lockcancel off','kick on','kick off','cancel on','cancel off','bc on','bc off','bmsg on','bmsg off']
+        const action = ['lockinvite on','lockinvite off','lockupdategroup on','lockupdategroup off','lockjoin on','lockjoin off','lockcancel on','lockcancel off','bankaimode on','bankaimode off','cancel on','cancel off','bc on','bc off','bmsg on','bmsg off']
         if(action.includes(txt)) {
             this.setState(seq)
         }
+	if(txt == 'Ban kai' && this.stateStatus.bc == 1) {
+		if(isAdmin(seq.from) || isStaff(seq.from)) {
+			this.sendMessage(seq,"Bankai mode sudah aktif");
+		}
+	}
+		
+		
 	
         if(txt == 'myid' && isAdmin(seq.from)) {
             this._sendMessage(seq,`MID Anda : ${seq.from}`);
         }
 
-        const joinByUrl = ['openurl','closeurl'];
+        const joinByUrl = ['opengarganta','closegarganta'];
       if(joinByUrl.includes(txt) && isAdmin(seq.from)) {
             this._sendMessage(seq,`Please wait ...`);
             let updateGroup = await this._getGroup(seq.to);
             updateGroup.preventJoinByTicket = true;
-            if(txt == 'openurl') {
+            if(txt == 'opengarganta') {
                 updateGroup.preventJoinByTicket = false;
                 const groupUrl = await this._reissueGroupTicket(seq.to)
                 this._sendMessage(seq,`Link Group = line://ti/g/${groupUrl}`);
@@ -1139,7 +1138,8 @@ let { listMember } = await this.searchGroup(seq.to);
             await this._acceptGroupInvitationByTicket(id,ticketId);
         }
 
-        if(cmd == 'Kick' && isStaff(seq.from)){
+       
+        if(cmd == 'cero' && isAdmin(seq.from)){
            let target = payload.replace('@','');
            let group = await this._getGroups([seq.to]);
            let gm = group[0].members;
@@ -1152,20 +1152,7 @@ let { listMember } = await this.searchGroup(seq.to);
                this._kickMember(seq.to,[target]);
         }
 
-        if(cmd == 'Kick' && isAdmin(seq.from)){
-           let target = payload.replace('@','');
-           let group = await this._getGroups([seq.to]);
-           let gm = group[0].members;
-              for(var i = 0; i < gm.length; i++){
-                     if(gm[i].displayName == target){
-                                  target = gm[i].mid;
-                     }
-               }
-
-               this._kickMember(seq.to,[target]);
-        }
-
-               if(cmd == 'bc' || cmd == 'Bc' && this.stateStatus.bc == 1) {
+               if(cmd == 'Say' || cmd == 'Bc' && this.stateStatus.bc == 1) {
 			if(isAdmin(seq.from) || isStaff(seq.from)) {
                   		const [  j, kata ] = payload.split('/');
                   		for (var i=0; i <j; i++) {
@@ -1173,12 +1160,6 @@ let { listMember } = await this.searchGroup(seq.to);
 				}
 			}
 	       }
-
-        if(cmd == 'spam' && isStaff(seq.from)) {
-            for(var i= 0; i < 10;  i++) {
-               this._sendMessage(seq, 'Bacod lu njing!!!');
-        }
-    }
 
         if(cmd == 'spam' && isAdmin(seq.from)) {
             for(var i= 0; i < 10;  i++) {
@@ -1196,7 +1177,7 @@ let { listMember } = await this.searchGroup(seq.to);
             }
         }
         
-        if(txt == 'leave') {
+        if(txt == 'hueco mundo') {
            if(isAdmin(seq.from) || isStaff(seq.from)){
           	let txt = await this._sendMessage(seq, 'Bye bye, Dont cry i will be back');
           	this._leaveGroup(seq.to);
