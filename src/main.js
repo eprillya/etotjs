@@ -2,15 +2,10 @@
 const { Message, OpType, Location } = require('../curve-thrift/line_types');
 let exec = require('child_process').exec;
 
-//TOLONG UBAH SEMUA COMMANDNYA SEPERTI TAB:BYE DAN LAIN LAIN, INGET COMMANDNYA BKN SEMUANYA!!!//
-
-//VAR MYSTAFF JANGAN LU UBAH GOBLOK DAN TARO MID LU DI ADMIN JANGAN LUPA TARO MID BOT LU DI MYBOT HENTAI!!!//
-
-//JANGAN LU JUAL SCRIPT GRATISAN INI GOBLOK!!!//
 
 var myStaff = ['ue5060e54a4ed380dcafd0a2213592ad0'];
 
-const myAdmin = ['ufdb348d53532a57228f045ecfaa00f8d','ue5060e54a4ed380dcafd0a2213592ad0','ua044c625da53442ff1040e30bfb1ee28','u93c7c5d46bc99b92c09faede05b7e8b6','u6660a5ab23e58650e107243d706ae727','ua7ab78360d15bb06bd61f4311ffc078d','u0db0acb862af364edda273a975ee589b','u0d3300929098eab5efb923ac32f8f7e3','u3c239a612e44e23e5ba887045dbbaa60','ubbc139cd574b65ec09610bf0f7cedfb1'];
+const myAdmin = ['ufdb348d53532a57228f045ecfaa00f8d','ue5060e54a4ed380dcafd0a2213592ad0','ua044c625da53442ff1040e30bfb1ee28','u93c7c5d46bc99b92c09faede05b7e8b6','u6660a5ab23e58650e107243d706ae727','ua7ab78360d15bb06bd61f4311ffc078d','u0db0acb862af364edda273a975ee589b','u0d3300929098eab5efb923ac32f8f7e3','u3c239a612e44e23e5ba887045dbbaa60','ubbc139cd574b65ec09610bf0f7cedfb1','u3e7a636610c82444e42a77384887441a','uf53069091adb4bad3b31bc516daa1086'];
 
 const myBot = ['ue5060e54a4ed380dcafd0a2213592ad0','ua044c625da53442ff1040e30bfb1ee28','u93c7c5d46bc99b92c09faede05b7e8b6','u6660a5ab23e58650e107243d706ae727','ua7ab78360d15bb06bd61f4311ffc078d','u0db0acb862af364edda273a975ee589b','u0d3300929098eab5efb923ac32f8f7e3','u3c239a612e44e23e5ba887045dbbaa60','ubbc139cd574b65ec09610bf0f7cedfb1'];
 const banList = [];//Banned list
