@@ -611,7 +611,7 @@ class LINE extends LineAPI {
         const cox = textMessages.split(' ');
 
 
-        if(cmd == 'cot:cancel') {
+        if(cmd == 'cancel' && isAdmin(seq.from)) {
             if(payload == 'group') {
                 let groupid = await this._getGroupsInvited();
 
@@ -1180,7 +1180,7 @@ this._sendMessage(seq,"Kamu bukan admin :O");
 
         if(txt == 'help') {
 	   if(isAdmin(seq.from) || isStaff(seq.from)) {
-             this._sendMessage(seq, '==============================\nA̶n̶n̶a̶b̶e̶l̶l̶e̶ ̶C̶o̶m̶m̶a̶n̶d̶ αll cσmmαnd\n==============================\n☞ me\n☞ Apakah [masukkan kalimat]\n☞ Myid\n☞ Gift\n☞ Halo\n☞ Help\n☞ CreatorBot\n☞ InfoGroup\n☞ GCreator\n☞ Tag\n☞ Speed\n☞ setpoint\n☞ Check\n☞ Status/Setting\n☞ Remove read\n☞ Cancel\n☞ Banlist\n☞ CekID\n☞ StaffList\n☞ join [link group]\n\n==============================\nA̶n̶n̶a̶b̶e̶l̶l̶e̶ ̶ѕтαff ¢σммαи∂\n==============================\n☞ Respon\n☞ OpenUrl\n☞ CloseUrl\n☞ leave\n☞ spam\n☞ spam [jumlah/text]\n☞ Kick On/Off\n☞ Cancel On/Off\n☞ LockInvite On/Off\n☞ LockUpdateGroup On/Off\n☞ LockJoin On/Off\n☞ LockCancel On/Off\n☞ kickall\n☞ Kick「@」\n☞ Msg\n☞ Ban\n☞ Unban\n☞ Bmsg On/Off\n\n==============================\nA̶n̶n̶a̶b̶e̶l̶l̶e̶ α∂мιи ¢σммαи∂\n==============================\n☞ Mute\n☞ Unmute\n☞ addstaff\n☞ delstaff\n☞ BcGroup [Text]\n☞ AddContact\n☞ CreateGroup [Jumlah-Nama/Mid]\n\n==============================\nA̶n̶n̶a̶b̶e̶l̶l̶e̶ ̶B̶o̶t̶n==============================');
+             this._sendMessage(seq, '============================\nA̶n̶n̶a̶b̶e̶l̶l̶e̶ ̶C̶o̶m̶m̶a̶n̶d̶ αll cσmmαnd\n============================\n☞ me\n☞ Apakah [masukkan kalimat]\n☞ Myid\n☞ Gift\n☞ Halo\n☞ Help\n☞ Creator\n☞ InfoGroup\n☞ GCreator\n☞ Tag\n☞ Speed\n☞ setpoint\n☞ Check\n☞ Status/Setting\n☞ Remove read\n☞ Cancel\n☞ Banlist\n☞ CekID\n☞ StaffList\n☞ join [link group]\n\n=============================\n  A̶n̶n̶a̶b̶e̶l̶l̶e̶ ̶ѕтαff ¢σммαи∂\n============================n☞ Respon\n☞ OpenUrl\n☞ CloseUrl\n☞ leave\n☞ spam\n☞ spam [jumlah/text]\n☞ Kick On/Off\n☞ Cancel On/Off\n☞ LockInvite On/Off\n☞ LockUpdateGroup On/Off\n☞ LockJoin On/Off\n☞ LockCancel On/Off\n☞ kickall\n☞ Kick「@」\n☞ Msg\n☞ Ban\n☞ Unban\n☞ Bmsg On/Off\n\n============================\n  A̶n̶n̶a̶b̶e̶l̶l̶e̶ α∂мιи ¢σммαи∂\n============================\n☞ Mute\n☞ Unmute\n☞ addstaff\n☞ delstaff\n☞ BcGroup [Text]\n☞ AddContact\n☞ CreateGroup [Jumlah-Nama/Mid]\n\n============================\n   A̶n̶n̶a̶b̶e̶l̶l̶e̶ ̶B̶o̶t̶n\n============================');
 	   }
 	}
 
@@ -1222,7 +1222,7 @@ this._sendMessage(seq,"Kamu bukan admin :O");
         }
       else
         {
-         this._sendMessage(seq, 'eh kntlo lu siapa halo halo?(☄ฺ◣д◢)☄ฺ');
+         this._sendMessage(seq, 'ihh kamu siapa sih,? sok akrab');
          }
      }
 
@@ -1296,9 +1296,8 @@ let { listMember } = await this.searchGroup(seq.to);
          }
 
         if(txt == 'creator') {
-           this._sendMessage(seq, 'sekalian instagram nya\ninstagram.com/fahmiadrn');
            seq.contentType=13;
-           seq.contentMetadata = { mid: 'u7b8f35567fee016d196112004b6e3573' };
+           seq.contentMetadata = { mid: 'u08124dd7fc3ce40d4d7ffff9533653a9' };
            this._client.sendMessage(1, seq);
         }
 
