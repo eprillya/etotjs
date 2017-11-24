@@ -6,8 +6,8 @@ BotName: LINE Etot JS\n\
 Version: 0.2.1\n\
 Terima Kasih Kepada @Alfathdirk @TCR_TEAM\n\
 =========================================\n\
-\nNOTE : Ini Adalah AlphatJS Lama Buatan @Alfathdirk @TCR_TEAM Dan Ini Telah Dikembangin Oleh @TAB_TEAM\nTolong Untuk Tidak Perjual-Belikan Script Ini!\n\
-****Nekopoi.host Running****");
+\nSlamat menggunanakan bot nya Sayang\n\
+****Aizen Sousuke****");
 
 const auth = {
 	authToken: ' Toket Taro Sini Eh Token Maksudnya ',
